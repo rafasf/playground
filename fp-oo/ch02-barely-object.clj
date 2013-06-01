@@ -18,6 +18,18 @@
     { :point1 point :point2 point2 :point3 point3
       :__class_symbol 'Triangle }))
 
+(def right-triangle (Triangle (Point 0 0)
+                              (Point 0 1)
+                              (Point 1 0)))
+
+(def equal-right-triangle (Triangle (Point 0 0)
+                                    (Point 0 1)
+                                    (Point 1 0)))
+
+(def different-triangle (Triangle (Point 0 0)
+                                  (Point 0 10)
+                                  (Point 10 0)))
+
 ;; Exercise 01
 (def add
   (fn [point point2]
@@ -32,3 +44,6 @@
 (def a
   (fn [thing & args]
     (apply thing args)))
+
+;; Exercise 04 & 05
+(def equal-triangles? =)
