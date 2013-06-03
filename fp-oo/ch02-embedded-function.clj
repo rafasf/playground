@@ -11,11 +11,9 @@
                    :x :x
                    :y :y
                    :class :__class_symbol__
-                   :shift 
-                   (fn [this xinc yinc]
-                     (Point (+ (send-to this :x) xinc)
-                            (+ (send-to this :y) yinc)))
-                   :add
-                   (fn [point point2]
-                     (send-to point :shift (send-to point2 :x)
-                                           (send-to point2 :y)))}}))
+                   :shift (fn [this xinc yinc]
+                            (Point (+ (send-to this :x) xinc)
+                                   (+ (send-to this :y) yinc)))
+                   :add (fn [point point2]
+                          (send-to point :shift (send-to point2 :x)
+                                                (send-to point2 :y)))}}))
