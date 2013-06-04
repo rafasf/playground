@@ -8,7 +8,9 @@
 
 (def apply-message-to
   (fn [class instance message args]
-    (apply (method-of message class) instance args)))
+    (let [method (or (method-of message class)
+                     message)]
+    (apply method instance args))))
 
 (def a
   (fn [class & args]
@@ -34,5 +36,15 @@
                       (+ (:y this) yinc)))
     :origin (fn [this]
                (a Point 0 0))
+    }
+})
+
+(def Holder
+  {
+   :__own_symbol__ 'Holder
+   :__instance_methods__
+   {
+    :add-instance-values (fn [this held]
+                           (assoc this :held held))
     }
 })
