@@ -25,11 +25,14 @@
    :__instance_methods__
    {
     :class-name :__class_symbol__
-    :class (fn [this] (class-of this))
+    :class (fn [this]
+             (class-of this))
     :add-instance-values (fn [this x y]
                            (assoc this :x x :y y))
     :shift (fn [this xinc yinc]
              (a Point (+ (:x this) xinc)
                       (+ (:y this) yinc)))
+    :origin (fn [this]
+               (a Point 0 0))
     }
 })
