@@ -38,3 +38,7 @@
 (def add-zero-as-value
   (fn [element so-far]
     (assoc so-far element 0)))
+
+(def add-its-position-as-value
+  (fn [element so-far]
+    (assoc so-far element (count so-far))))
