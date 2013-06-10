@@ -26,10 +26,15 @@
       so-far
       (multiply-numbers (rest numbers) (* (first numbers) so-far)))))
 
-(def combine-numbers
+(def recursive-fn
   (fn [combiner numbers so-far]
     (if (empty? numbers)
       so-far
       (combine-numbers combiner
                        (rest numbers)
                        (combiner (first numbers) so-far)))))
+
+; Exercise 5
+(def add-zero-as-value
+  (fn [element so-far]
+    (assoc so-far element 0)))
