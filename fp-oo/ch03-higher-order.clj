@@ -50,3 +50,15 @@
 (def upc?
   (fn [upc]
     (zero? (rem (check-sum2 (reversed-digits upc)) 10))))
+
+; Exercise 10
+(def number-checker
+  (fn [func divisor]
+    (fn [a-seq]
+      (let [numbers (reversed-digits a-seq)
+            check-sum (apply + (map func (range 1 (inc (count numbers))) numbers))]
+        (zero? (rem check-sum divisor))))))
+
+(def isbn2? (number-checker * 11))
+(def upc2? (number-checker (fn [position digit] (* (if (odd? position) 1 3) digit)) 10))
+
