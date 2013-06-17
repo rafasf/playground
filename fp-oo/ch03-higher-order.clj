@@ -23,3 +23,8 @@
 (def a-value
   (fn [value]
     (fn [& anything] value)))
+
+; Exercise 07
+(def check-sum
+  (fn [a-seq]
+    (apply + (map * (range 1 (inc (count a-seq))) a-seq))))
