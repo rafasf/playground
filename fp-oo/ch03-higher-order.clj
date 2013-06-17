@@ -1,3 +1,5 @@
+(load-file "src/ch03-higher-order.clj")
+
 ; Exercise 01
 (def inc-2
   (map (partial + 2) [1 2 3]))
@@ -28,3 +30,8 @@
 (def check-sum
   (fn [a-seq]
     (apply + (map * (range 1 (inc (count a-seq))) a-seq))))
+
+; Exercise 08
+(def isbn?
+  (fn [isbn]
+    (zero? (rem (check-sum (reversed-digits isbn)) 11))))
