@@ -18,3 +18,8 @@
 (def my-atom (atom 0))
 (def change-atom
   (swap! my-atom (fn [anything] 33)))
+
+; Exercise 06
+(def a-value
+  (fn [value]
+    (fn [& anything] value)))
