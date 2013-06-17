@@ -4,3 +4,6 @@
 
 (def inc-2-variant
   (map (comp inc inc) [1 2 3]))
+
+; Exercise 02
+(def separate (juxt filter remove))
