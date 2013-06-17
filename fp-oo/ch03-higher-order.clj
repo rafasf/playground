@@ -32,6 +32,21 @@
     (apply + (map * (range 1 (inc (count a-seq))) a-seq))))
 
 ; Exercise 08
+; (isbn? "0131774115")
+; (isbn? "0977716614")
+; (isbn? "1934356190")
 (def isbn?
   (fn [isbn]
     (zero? (rem (check-sum (reversed-digits isbn)) 11))))
+
+; Exercise 09
+; (upc? "074182265830")
+; (upc? "731124100023")
+; (upc? "722252601404")
+(def check-sum2
+  (fn [a-seq]
+    (apply + (map (fn [position digit] (* (if (odd? position) 1 3) digit)) (range 1 (inc (count a-seq))) a-seq))))
+
+(def upc?
+  (fn [upc]
+    (zero? (rem (check-sum2 (reversed-digits upc)) 10))))
