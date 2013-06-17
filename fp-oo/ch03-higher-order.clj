@@ -13,3 +13,8 @@
   ((fn [x] 
      (fn [] x))
      3))
+
+; Exercise 05
+(def my-atom (atom 0))
+(def change-atom
+  (swap! my-atom (fn [anything] 33)))
