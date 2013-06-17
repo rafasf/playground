@@ -7,3 +7,9 @@
 
 ; Exercise 02
 (def separate (juxt filter remove))
+
+; Exercise 04
+(def myfun
+  ((fn [x] 
+     (fn [] x))
+     3))
