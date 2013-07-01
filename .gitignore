@@ -3,5 +3,7 @@ pom.xml
 lib/
 classes/
 targets/
+target/
 repl-port
 .lein-deps-sum
+.lein-repl-history
