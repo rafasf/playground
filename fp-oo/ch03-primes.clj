@@ -12,3 +12,6 @@
               nonprime (multiples i)]
              nonprime)))
 
+; Exercise 03
+(def primes
+  (remove (set nonprimes) (range 2 101)))
