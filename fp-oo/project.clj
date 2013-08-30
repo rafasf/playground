@@ -3,5 +3,6 @@
   :url "no url yet"
   :dependencies [
                  [org.clojure/clojure "1.5.1"]
-                 [org.clojure/algo.monads "0.1.4"]])
+                 [org.clojure/algo.monads "0.1.4"]
+                 [patterned "0.2.0"]])
 
