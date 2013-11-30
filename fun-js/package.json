@@ -1,0 +1,17 @@
+{
+  "name": "f-js",
+  "version": "0.0.1",
+  "description": "Functional Javascript",
+  "main": "a-spec.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha -R spec spec/*.spec.js"
+  },
+  "repository": "",
+  "author": "Rafael Ferreira",
+  "license": "BSD",
+  "devDependencies": {
+    "should": "~2.0.2",
+    "underscore": "~1.5.2",
+    "mocha": "~1.14.0"
+  }
+}

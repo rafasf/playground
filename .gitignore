@@ -7,3 +7,4 @@ target/
 repl-port
 .lein-deps-sum
 .lein-repl-history
+node_modules/
