@@ -5,7 +5,7 @@ describe('lazy chain', function () {
   var lazyChain;
 
   beforeEach(function () {
-    lazyChain = new l.LazyChain([2, 1, 3]);
+    lazyChain = l.lazyChain([2, 1, 3]);
   });
 
   it('executes given call when force is called', function () {

@@ -1,25 +1,27 @@
 var _ = require('underscore');
 
-var LazyChain = function(obj) {
-  this._calls = [];
-  this._target = obj;
+var lazyChain = function(obj) {
+  var self = {},
+      calls = [];
+
+  self.invoke = function(methodName) {
+    var args = _.rest(arguments);
+
+    calls.push(function(target) {
+      var method = target[methodName];
+      return method.apply(target, args);
+    });
+
+    return self;
+  };
+
+  self.force = function () {
+    return _.reduce(calls, function(target, thunk) {
+      return thunk(target);
+    }, obj);
+  };
+
+  return self;
 };
 
-LazyChain.prototype.invoke = function(methodName) {
-  var args = _.rest(arguments);
-
-  this._calls.push(function(target) {
-    var method = target[methodName];
-    return method.apply(target, args);
-  });
-
-  return this;
-};
-
-LazyChain.prototype.force = function () {
-  return _.reduce(this._calls, function(target, thunk) {
-    return thunk(target);
-  }, this._target);
-};
-
-exports.LazyChain = LazyChain;
+exports.lazyChain = lazyChain;
