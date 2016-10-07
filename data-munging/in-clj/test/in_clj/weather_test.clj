@@ -20,3 +20,12 @@
   (fact "creates a map with day, min and max temperatures for each line"
     (days-weather-from [a-day another-day]) => [{:day 1 :min 59 :max 88}
                                                 {:day 30 :min 45 :max 90}]))
+
+(facts "about calculation"
+   (fact "creates a map with the temperature spread and day"
+     (spread-of {:day 3 :min 40 :max 60}) => {:day 3 :spread 20})
+
+   (fact "finds the lowest spread given a collection of those"
+     (lowest-spread-in [{:day 3 :spread 20}
+                        {:day 5 :spread 15}
+                        {:day 4 :spread 16}]) => {:day 5 :spread 15}))
