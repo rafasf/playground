@@ -14,6 +14,10 @@
    (let [read-data (relevant-lines-in raw-data)]
      (count read-data) => 2
      (first read-data) => a-team
-     (second read-data) => another-team)))
+     (second read-data) => another-team))
+
+ (fact "creates a map with team, pro and against score"
+   (teams-score-from [a-team another-team]) => [{:name "Arsenal" :pro 79 :against 36}
+                                                {:name "Ipswich" :pro 41 :against 64}]))
 
 
