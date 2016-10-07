@@ -15,4 +15,8 @@
     (let [valid-lines (relevant-lines-in raw-data)]
       (count valid-lines) => 2
       (first valid-lines) => a-day
-      (second valid-lines) => another-day)))
+      (second valid-lines) => another-day))
+
+  (fact "creates a map with day, min and max temperatures for each line"
+    (days-weather-from [a-day another-day]) => [{:day 1 :min 59 :max 88}
+                                                {:day 30 :min 45 :max 90}]))
