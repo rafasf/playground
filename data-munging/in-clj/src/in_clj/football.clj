@@ -14,3 +14,10 @@
 
 (defn teams-score-from [lines]
   (map team-score-from lines))
+
+(defn team-goal-different-of [team]
+  {:name (:name team)
+   :diff (- (:pro team) (:against team))})
+
+(defn lowest-difference-in [teams]
+  (first (sort-by :diff teams)))

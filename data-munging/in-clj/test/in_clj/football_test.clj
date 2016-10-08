@@ -20,4 +20,13 @@
    (teams-score-from [a-team another-team]) => [{:name "Arsenal" :pro 79 :against 36}
                                                 {:name "Ipswich" :pro 41 :against 64}]))
 
+(facts "about calculation"
+   (fact "calculates the difference between pro and against"
+     (team-goal-different-of {:name "Arsenal" :pro 79 :against 36}) => {:name "Arsenal" :diff 43})
+
+   (fact "finds the team with the lowest goal difference"
+         (lowest-difference-in [{:name "Arsenal" :diff 43}
+                                {:name "Ipswich" :diff 10}
+                                {:name "Chelsea" :diff 11}]) => {:name "Ipswich" :diff 10}))
+
 
