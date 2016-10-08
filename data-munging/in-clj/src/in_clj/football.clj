@@ -1,16 +1,10 @@
 (ns in-clj.football
-  (:require [clojure.string :as str]))
-
-(defn not-relevant [line]
-  (re-matches #"^\d.*" (str/trim line)))
-
-(defn relevant-lines-in [lines]
-  (filter not-relevant (clojure.string/split-lines lines)))
+  (:require [in-clj.munging :refer :all]))
 
 (defn team-score-from [line]
-  {:name (str/trim (subs line 7 23))
-   :pro (read-string (subs line 43 45))
-   :against (read-string (subs line 50 52))})
+  {:name (string-between 7 23 line)
+   :pro (int-between 43 45 line)
+   :against (int-between 50 52 line)})
 
 (defn teams-score-from [lines]
   (map team-score-from lines))
@@ -20,4 +14,4 @@
    :diff (- (:pro team) (:against team))})
 
 (defn lowest-difference-in [teams]
-  (first (sort-by :diff teams)))
+  (lowest-of :diff teams))

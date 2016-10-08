@@ -1,5 +1,6 @@
 (ns in-clj.football-test
   (:require [midje.sweet :refer :all]
+            [in-clj.munging :refer :all]
             [in-clj.football :refer :all]))
 
 (def a-team "    1. Arsenal         38    26   9   3    79  -  36    87")

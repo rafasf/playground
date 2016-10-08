@@ -1,5 +1,6 @@
 (ns in-clj.weather-test
   (:require [midje.sweet :refer :all]
+            [in-clj.munging :refer :all]
             [in-clj.weather :refer :all]))
 
 (def a-day "   1  88    59    74          53.8       0.00 F       280  9.6 270  17  1.6  93 23 1004.5")

@@ -1,16 +1,10 @@
 (ns in-clj.weather
-  (:require [clojure.string :as str]))
-
-(defn not-relevant [line]
-  (re-matches #"^\d.*" (str/trim line)))
-
-(defn relevant-lines-in [lines]
-  (filter not-relevant (clojure.string/split-lines lines)))
+  (:require [in-clj.munging :refer :all]))
 
 (defn to-day-weather [line]
-  {:day (read-string (subs line 0 4))
-   :max (read-string (subs line 6 8))
-   :min (read-string (subs line 12 14))})
+  {:day (int-between 0 4 line)
+   :max (int-between 6 8 line)
+   :min (int-between 12 14 line)})
 
 (defn days-weather-from [lines]
   (map to-day-weather lines))
@@ -20,4 +14,4 @@
    :spread (- (:max day-weather) (:min day-weather))})
 
 (defn lowest-spread-in [spreads]
-  (first (sort-by :spread spreads)))
+  (lowest-of :spread spreads))
